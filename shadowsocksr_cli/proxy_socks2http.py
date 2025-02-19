@@ -138,7 +138,7 @@ async def handle_connection(reader: StreamReader, writer: StreamWriter, socks_po
 
 def main():
     loop = asyncio.get_event_loop()
-    server = asyncio.start_server(handle_connection, host="localhost", port=7890)
+    server = asyncio.start_server(handle_connection, host="0.0.0.0", port=7890)
     try:
         server = loop.run_until_complete(server)
         loop.run_forever()
