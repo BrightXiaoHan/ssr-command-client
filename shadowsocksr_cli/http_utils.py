@@ -332,7 +332,7 @@ class HTTPProxyServer(Daemon):
     def __serve_forever(self):
         loop = asyncio.get_event_loop()
         handler = functools.partial(handle_connection, socks_port=self.socks_port)
-        server = asyncio.start_server(handler, host="localhost", port=self.port)
+        server = asyncio.start_server(handler, host="0.0.0.0", port=self.port)
         server = loop.run_until_complete(server)
         loop.run_forever()
 
